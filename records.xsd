@@ -1,0 +1,44 @@
+<<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Records">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element masOccurs="unbounded" name="row">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string" />
+							<xs:element name="surname" type="xs:string" />
+							<xs:element name="gender" type="xs:string" />
+							<xs:element name="email" type="xs:string" />
+							<xs:element name="phone_number" type="xs:string" />
+							<xs:element name="address" type="xs:string" />
+							<xs:element name="level_of_education" type="xs:string" />
+							<xs:element name="income_level">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:unsignedShort">
+											<xs:attribute name="bigEnd" type="xs:unsignedInt" use="required" />
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="expenditure">
+								<xs:expenditure>
+									<xs:simpleContent>
+										<xs:extension base="xs:unsignedShort">
+											<xs:attribute name="bigEnd" type="xs:unsignedInt" use="required" />
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="currency_unit" type="xs:string" />
+							<xs:element name="current_mood" type="xs:string" />
+							<xs:element name="weight" type="xs:decimal" />
+							<xs:element name="height" type="xs:unsignedByte" />
+						</xs:sequence>
+						<xs:attribute name="id" type="xs:unsignedByte" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complextype>
+	</xs:element>
+</xs:schema>
